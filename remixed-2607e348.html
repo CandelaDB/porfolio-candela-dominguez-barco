@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candela Dominguez Barco — Analista Funcional · IT Operations · QA & Data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{
+  --bg:#0A0A0A;--s1:#111111;--s2:#171717;--s3:#1C1C1C;
+  --border:#232323;--border2:#2E2E2E;
+  --text:#FFFFFF;--text2:#B3B3B3;--text3:#666666;
+  --violet:#7C3AED;--vl:#9F67FF;--vd:rgba(124,58,237,0.12);
+  --blue:#3B82F6;--bd:rgba(59,130,246,0.10);
+  --green:#22C55E;--gd:rgba(34,197,94,0.10);
+  --amber:#F59E0B;--ad:rgba(245,158,11,0.10);
+  --font:'Inter',system-ui,sans-serif;
+  --display:'Montserrat',system-ui,sans-serif;
+  --r:12px;--rl:20px;--rxl:28px;
+}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1.5rem,5vw,4rem);background:rgba(10,10,10,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--display);font-size:14px;font-weight:800;letter-spacing:.03em;background:linear-gradient(135deg,#fff 40%,var(--vl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-menu{display:flex;align-items:center;gap:2rem}
+.nav-menu a{font-size:13px;font-weight:500;color:var(--text2);transition:color .2s}
+.nav-menu a:hover{color:var(--text)}
+.nav-cta{padding:8px 18px;background:var(--violet);color:#fff!important;border-radius:8px;font-weight:600!important;transition:background .2s,transform .15s!important}
+.nav-cta:hover{background:var(--vl)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text2);border-radius:2px}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px clamp(1.5rem,5vw,4rem) 5rem;position:relative;overflow:hidden;max-width:1280px;margin:0 auto}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(ellipse,rgba(124,58,237,0.08) 0%,transparent 65%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:-150px;left:-50px;width:400px;height:400px;border-radius:50%;background:radial-gradient(ellipse,rgba(59,130,246,0.05) 0%,transparent 70%);pointer-events:none}
+.hero-content{max-width:760px;position:relative;z-index:1}
+.hero-avail{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:100px;font-size:12px;font-weight:500;color:var(--green);letter-spacing:.04em;margin-bottom:1.75rem}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:var(--display);font-size:clamp(3rem,5.5vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1rem}
+.hero h1 .ac{background:linear-gradient(135deg,var(--vl),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-roles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem}
+.rpill{padding:5px 12px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:12px;font-weight:500;color:var(--text2)}
+.hero-desc{font-size:18px;font-weight:300;color:var(--text2);line-height:1.8;max-width:620px;margin-bottom:2.5rem}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;border:none;transition:all .2s;text-decoration:none}
+.btn-p{background:var(--violet);color:#fff}
+.btn-p:hover{background:var(--vl);transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,58,237,.3)}
+.btn-s{background:var(--s2);color:var(--text);border:1px solid var(--border2)}
+.btn-s:hover{border-color:var(--violet);color:var(--vl);transform:translateY(-2px)}
+
+.sec{padding:6rem clamp(1.5rem,5vw,4rem);max-width:1280px;margin:0 auto}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--vl);margin-bottom:1.25rem}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--vl)}
+.stitle{font-family:var(--display);font-size:clamp(2rem,3.5vw,2.8rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:1rem}
+.stitle .ac{background:linear-gradient(135deg,var(--vl),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ssub{font-size:17px;font-weight:300;color:var(--text2);max-width:600px;line-height:1.8;margin-bottom:3.5rem}
+
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:start}
+.about-text{font-size:17px;line-height:1.95;color:var(--text2);font-weight:300}
+.about-text strong{color:var(--text);font-weight:500}
+.about-text p{margin-bottom:1.2rem}
+.about-text p:last-child{margin-bottom:0}
+.values{display:flex;flex-direction:column;gap:12px}
+.val{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--s1);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s}
+.val:hover{border-color:var(--violet)}
+.val-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--vd);font-size:16px}
+.val-title{font-size:14px;font-weight:600;margin-bottom:2px}
+.val-sub{font-size:13px;color:var(--text2);line-height:1.5}
+
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.mcard{background:var(--s1);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;text-align:center;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.mcard::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;background:radial-gradient(ellipse at top center,rgba(124,58,237,.06) 0%,transparent 70%)}
+.mcard:hover{border-color:rgba(124,58,237,.3);transform:translateY(-4px)}
+.mcard:hover::before{opacity:1}
+.mnum{font-family:var(--display);font-size:3rem;font-weight:800;line-height:1;margin-bottom:4px;background:linear-gradient(135deg,var(--vl),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mlbl{font-size:13px;font-weight:500;color:var(--text2)}
+
+.cases{display:flex;flex-direction:column;gap:1.5rem}
+.ccase{background:var(--s1);border:1px solid var(--border);border-radius:var(--rxl);padding:2.5rem;position:relative;overflow:hidden;transition:border-color .25s}
+.ccase:hover{border-color:var(--border2)}
+.ccase-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;position:relative}
+.ctag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem}
+.tv{background:var(--vd);color:var(--vl);border:1px solid rgba(124,58,237,.2)}
+.tb{background:var(--bd);color:#93C5FD;border:1px solid rgba(59,130,246,.2)}
+.tg{background:var(--gd);color:#86EFAC;border:1px solid rgba(34,197,94,.2)}
+.ta{background:var(--ad);color:#FCD34D;border:1px solid rgba(245,158,11,.2)}
+.cnum{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.08em;margin-bottom:8px}
+.ctitle{font-family:var(--display);font-size:1.5rem;font-weight:700;line-height:1.25;margin-bottom:8px}
+.csub{font-size:14px;color:var(--text2);font-style:italic;margin-bottom:1.5rem}
+.cblocks{display:flex;flex-direction:column;gap:1.25rem}
+.cblbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:5px}
+.cbtxt{font-size:14px;color:var(--text2);line-height:1.7}
+.cresult{margin-top:1.25rem;padding:1.25rem;border-radius:var(--r);background:rgba(34,197,94,.05);border:1px solid rgba(34,197,94,.15)}
+.crlbl{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--green);margin-bottom:5px}
+.clearn{margin-top:1rem;padding:1.25rem;border-radius:var(--r);background:var(--vd);border:1px solid rgba(124,58,237,.15)}
+.cllbl{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--vl);margin-bottom:5px}
+.ctools{display:flex;flex-wrap:wrap;gap:6px;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.tbadge{padding:4px 10px;border-radius:100px;font-size:11px;font-weight:500;background:var(--s2);border:1px solid var(--border2);color:var(--text3)}
+
+.tl{position:relative;padding-left:2.5rem;max-width:800px}
+.tl::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:var(--border)}
+.tli{position:relative;padding-bottom:3.5rem}
+.tli:last-child{padding-bottom:0}
+.tldot{position:absolute;left:-2.875rem;top:5px;width:14px;height:14px;border-radius:50%;border:2px solid}
+.tldot.cur{background:var(--violet);border-color:var(--violet);box-shadow:0 0 0 5px rgba(124,58,237,.15)}
+.tldot.past{background:var(--s2);border-color:var(--border2)}
+.tlperiod{font-size:12px;font-weight:600;color:var(--text3);letter-spacing:.04em;margin-bottom:4px}
+.tlrole{font-size:20px;font-weight:600;margin-bottom:3px;letter-spacing:-.01em}
+.tlco{font-size:14px;font-weight:500;color:var(--vl);margin-bottom:1.25rem}
+.tlpts{display:flex;flex-direction:column;gap:8px}
+.tlpt{display:flex;gap:10px;align-items:baseline;font-size:15px;color:var(--text2);line-height:1.65}
+.tlpt::before{content:'→';color:var(--violet);font-size:12px;flex-shrink:0;font-weight:600}
+.tlchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.tlchip{padding:4px 10px;border-radius:100px;font-size:11px;font-weight:500;background:var(--s2);border:1px solid var(--border);color:var(--text3)}
+
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.sgroup{background:var(--s1);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;transition:border-color .2s,transform .2s}
+.sgroup:hover{border-color:var(--border2);transform:translateY(-2px)}
+.sgh{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem}
+.sgicon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sgname{font-size:14px;font-weight:700;letter-spacing:-.01em}
+.sgsub{font-size:12px;color:var(--text3)}
+.slist{display:flex;flex-direction:column;gap:10px}
+.sitem{display:flex;flex-direction:column;gap:5px}
+.snrow{display:flex;justify-content:space-between;align-items:center}
+.sname{font-size:13px;font-weight:500;color:var(--text2)}
+.slvl{font-size:11px;color:var(--text3);font-weight:500}
+.sbar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.sfill{height:100%;border-radius:2px;transition:width .7s ease}
+
+.egrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem}
+.ecard{background:var(--s1);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem;transition:border-color .2s}
+.ecard:hover{border-color:var(--border2)}
+.eicon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1rem}
+.etype{font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--text3);text-transform:uppercase;margin-bottom:6px}
+.etitle{font-size:16px;font-weight:600;line-height:1.35;margin-bottom:4px}
+.eorg{font-size:13px;color:var(--text2);margin-bottom:12px}
+.ebadge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:11px;font-weight:600}
+.ba{background:var(--gd);color:#86EFAC;border:1px solid rgba(34,197,94,.2)}
+.bd2{background:var(--vd);color:var(--vl);border:1px solid rgba(124,58,237,.2)}
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;background:var(--s1);border:1px solid var(--border);border-radius:var(--rl);padding:1.75rem}
+.cert{display:flex;align-items:center;gap:10px}
+.cdot{width:8px;height:8px;border-radius:50%;background:var(--violet);flex-shrink:0}
+.cname{font-size:14px;font-weight:500;color:var(--text)}
+.csub2{font-size:12px;color:var(--text3)}
+
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.ch{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;line-height:1.15;letter-spacing:-.025em;margin-bottom:1.25rem}
+.cdesc{font-size:17px;font-weight:300;color:var(--text2);line-height:1.8;margin-bottom:2rem}
+.clinks{display:flex;flex-direction:column;gap:10px}
+.clink{display:flex;align-items:center;gap:14px;padding:15px 18px;background:var(--s1);border:1px solid var(--border);border-radius:var(--r);transition:border-color .2s,transform .2s;color:var(--text)}
+.clink:hover{border-color:var(--violet);transform:translateX(4px)}
+.clicon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cllbl{font-size:11px;color:var(--text3);letter-spacing:.04em;margin-bottom:2px}
+.clval{font-size:14px;font-weight:500}
+.cform{display:flex;flex-direction:column;gap:14px}
+.fgrp{display:flex;flex-direction:column;gap:6px}
+.flbl{font-size:12px;font-weight:600;color:var(--text3);letter-spacing:.04em}
+.finput{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:13px 16px;color:var(--text);font-family:var(--font);font-size:15px;transition:border-color .2s;outline:none}
+.finput:focus{border-color:var(--violet)}
+.finput::placeholder{color:var(--text3)}
+textarea.finput{min-height:110px;resize:vertical}
+
+footer{border-top:1px solid var(--border);padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:1280px;margin:0 auto}
+.flogo{font-family:var(--display);font-size:13px;font-weight:800;background:linear-gradient(135deg,#fff 40%,var(--vl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.fcopy{font-size:13px;color:var(--text3)}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@keyframes fup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero-avail{animation:fup .5s ease .1s both}
+.hero h1{animation:fup .5s ease .2s both}
+.hero-roles{animation:fup .5s ease .3s both}
+.hero-desc{animation:fup .5s ease .4s both}
+.hero-ctas{animation:fup .5s ease .5s both}
+
+@media(max-width:1024px){
+  .mgrid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr}
+  .sgrid{grid-template-columns:repeat(2,1fr)}
+  .ccase-inner{grid-template-columns:1fr}
+  .certs{grid-template-columns:repeat(2,1fr)}
+  .egrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .cgrid{grid-template-columns:1fr}
+  .egrid{grid-template-columns:1fr}
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .sgrid{grid-template-columns:1fr}
+  .mgrid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .certs{grid-template-columns:1fr 1fr}
+  .hero-ctas{flex-direction:column}
+  .btn{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-logo">Candela.db</span>
+  <div class="nav-menu" id="navmenu">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#impacto">Impacto</a>
+    <a href="#casos">Casos</a>
+    <a href="#experiencia">Experiencia</a>
+    <a href="#skills">Skills</a>
+    <a href="#formacion">Formación</a>
+    <a href="#contacto" class="nav-cta">Contacto</a>
+  </div>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0"></div>
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-content">
+      <div class="hero-avail"><span class="avail-dot"></span>Disponible para nuevas oportunidades</div>
+      <h1>Candela<br><span class="ac">Dominguez</span><br>Barco</h1>
+      <div class="hero-roles">
+        <span class="rpill">Analista Funcional</span>
+        <span class="rpill">IT Operations</span>
+        <span class="rpill">QA Analyst</span>
+        <span class="rpill">Support Specialist</span>
+        <span class="rpill">Data Analyst</span>
+      </div>
+      <p class="hero-desc">Profesional IT con <strong>más de 4 años de experiencia</strong> resolviendo problemas de negocio a través de datos, procesos y tecnología. El puente entre el problema y la solución.</p>
+      <div class="hero-ctas">
+        <a href="https://drive.google.com/uc?export=download&id=1WP0yOGytPHM7RpWEZPFILzIwtoVuysWu" class="btn btn-p" target="_blank">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar CV
+        </a>
+        <a href="https://www.linkedin.com/in/candela-dominguez-barco" target="_blank" class="btn btn-s">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://wa.link/aqnbz2" target="_blank" class="btn btn-s">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L.057 23.522a.5.5 0 00.609.61l5.733-1.453A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.893a9.868 9.868 0 01-5.031-1.378l-.36-.214-3.733.947.984-3.641-.235-.374A9.861 9.861 0 012.107 12C2.107 6.532 6.533 2.107 12 2.107c5.468 0 9.893 4.425 9.893 9.893 0 5.469-4.425 9.893-9.893 9.893z"/></svg>
+          Hablemos →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Perfil profesional</p>
+    <h2 class="stitle">Más que soporte.<br><span class="ac">Análisis y producto.</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Soy <strong>Analista Funcional y especialista en IT Operations</strong> con foco en la intersección entre análisis de datos, QA y gestión de productos digitales. Mi diferencial es entender el problema desde el negocio, investigarlo con datos y SQL, validarlo con testing funcional y comunicarlo con claridad a equipos técnicos y de producto.</p>
+      <p>Durante más de 4 años trabajé en entornos tecnológicos donde aprendí que <strong>el soporte bien hecho es inteligencia de negocio</strong>: cada incidencia es un dato, cada bug es una oportunidad de mejora del producto, y cada consulta de usuario es un input valioso para el equipo de producto.</p>
+      <p>Actualmente en <strong>Prisma Retail</strong>, colaborando con equipos de desarrollo para diagnosticar, documentar y escalar incidencias críticas en producción. Anteriormente en <strong>Ticmas</strong>, donde combiné análisis operativo, QA funcional, consultas SQL y desarrollo fullstack en una misma posición híbrida.</p>
+      <p>Me encuentro actualmente capacitándome en la <strong>Tecnicatura en Análisis de Datos e IA en ORT</strong>, y cuento con conocimientos en modelos de inteligencia artificial como <strong>Agentes Conversacionales (Chatbots)</strong> y <strong>Modelos de Lenguaje Base (LLMs)</strong>, que ya apliqué en proyectos reales de automatización y soporte.</p>
+      <p>Busco roles donde pueda aportar desde la <strong>operación hasta el producto</strong>: Analista Funcional, QA Lead, Product Operations, Business Analyst o Product Owner Junior.</p>
+    </div>
+    <div class="values reveal d1">
+      <div class="val"><div class="val-icon">🔍</div><div><div class="val-title">Pensamiento analítico</div><div class="val-sub">Detecto patrones y traduzco datos en decisiones accionables para el negocio.</div></div></div>
+      <div class="val"><div class="val-icon">🔗</div><div><div class="val-title">Puente técnico-negocio</div><div class="val-sub">Traduzco necesidades de usuarios y stakeholders a especificaciones técnicas claras.</div></div></div>
+      <div class="val"><div class="val-icon">🤖</div><div><div class="val-title">IA aplicada al negocio</div><div class="val-sub">Implemento LLMs y agentes conversacionales para automatizar flujos y optimizar recursos.</div></div></div>
+      <div class="val"><div class="val-icon">📋</div><div><div class="val-title">Documentación de calidad</div><div class="val-sub">Genero documentación técnica y funcional que los equipos realmente usan.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMPACTO -->
+<section id="impacto" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Mi impacto</p>
+    <h2 class="stitle">Números que <span class="ac">hablan</span></h2>
+    <p class="ssub">Lo que definen mi perfil profesional.</p>
+  </div>
+  <div class="mgrid">
+    <div class="mcard reveal"><div class="mnum">4+</div><div class="mlbl">Años de experiencia en IT</div></div>
+    <div class="mcard reveal d1"><div class="mnum">15+</div><div class="mlbl">Herramientas y tecnologías dominadas</div></div>
+    <div class="mcard reveal d2">
+      <div class="mnum">3</div>
+      <div class="mlbl">Idiomas</div>
+      <div style="display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap">
+        <span style="padding:3px 10px;border-radius:100px;font-size:11px;background:var(--vd);color:var(--vl);border:1px solid rgba(124,58,237,.2)">Español nativo</span>
+        <span style="padding:3px 10px;border-radius:100px;font-size:11px;background:var(--bd);color:#93C5FD;border:1px solid rgba(59,130,246,.2)">Inglés técnico</span>
+        <span style="padding:3px 10px;border-radius:100px;font-size:11px;background:var(--ad);color:#FCD34D;border:1px solid rgba(245,158,11,.2)">Japonés básico</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CASOS -->
+<section id="casos" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Casos de estudio</p>
+    <h2 class="stitle">Problemas reales,<br><span class="ac">soluciones concretas</span></h2>
+    <p class="ssub">Cuatro proyectos que muestran cómo analizo, investigo y resuelvo problemas de negocio combinando datos, QA y operaciones.</p>
+  </div>
+  <div class="cases">
+
+    <!-- CASO 1 -->
+    <div class="ccase reveal">
+      <div style="background:radial-gradient(ellipse at top right,rgba(124,58,237,.07),transparent 55%);position:absolute;inset:0;border-radius:var(--rxl);pointer-events:none"></div>
+      <div class="ccase-inner">
+        <div>
+          <p class="cnum">CASO 01 / 04</p>
+          <span class="ctag tv">IT Operations · IA Aplicada</span>
+          <h3 class="ctitle">Optimización de la gestión de incidencias con IA</h3>
+          <p class="csub">Reducir tiempo de resolución y automatizar casos recurrentes con agentes de IA</p>
+          <div class="cblocks">
+            <div><p class="cblbl">📌 Contexto</p><p class="cbtxt">En Prisma Retail, el equipo de soporte gestionaba un volumen creciente de tickets sin protocolo claro para casos recurrentes. Cada agente resolvía el mismo problema de forma distinta, generando inconsistencias y consumo innecesario de tiempo.</p></div>
+            <div><p class="cblbl">⚠️ Problema</p><p class="cbtxt">Alto tiempo promedio de resolución (AHT) en tickets que seguían patrones repetitivos. Sin documentación ni escalamiento estandarizado, cada caso consumía el mismo esfuerzo que uno nuevo.</p></div>
+            <div><p class="cblbl">🔍 Investigación y análisis</p><p class="cbtxt">Exporté el histórico de tickets desde Intercom y los analicé en Excel. Clasifiqué por tipo, frecuencia, tiempo de resolución y área responsable. Identifiqué que el 42% de los tickets correspondían a solo 4 categorías recurrentes sin protocolo definido.</p></div>
+          </div>
+          <div class="ctools">
+            <span class="tbadge">Claude (Anthropic)</span><span class="tbadge">Intercom</span><span class="tbadge">JIRA</span><span class="tbadge">Excel</span><span class="tbadge">Confluence</span>
+          </div>
+        </div>
+        <div>
+          <div class="cblocks">
+            <div><p class="cblbl">✅ Solución implementada</p><p class="cbtxt">Diseñé flujos de resolución específicos por categoría y documenté runbooks internos con pasos, criterios de escalamiento y responsables. Propuse macros de respuesta para los casos más frecuentes y definí qué información mínima debe acompañar cada escalamiento a desarrollo.</p>
+            <p class="cbtxt" style="margin-top:10px">Adicionalmente, creamos <strong style="color:var(--vl)">agentes de IA con skills específicas en Claude</strong> para que analicen los casos recurrentes y resuelvan consultas frecuentes en forma autónoma, analizando las bases de datos e información del cliente. Esto permitió optimizar significativamente los tiempos de análisis y los recursos del equipo.</p></div>
+          </div>
+          <div class="cresult">
+            <p class="crlbl">✓ RESULTADO OBTENIDO</p>
+            <p class="cbtxt">Reducción estimada del 35% en tiempo de resolución para casos recurrentes. Los agentes de IA absorbieron una proporción relevante de consultas sin intervención humana. Mejora en trazabilidad y documentación de bugs críticos hacia desarrollo.</p>
+          </div>
+          <div class="clearn">
+            <p class="cllbl">💡 APRENDIZAJE CLAVE</p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">El soporte de calidad no es solo resolver el ticket — es identificar qué puede automatizarse. Los LLMs aplicados correctamente no reemplazan al equipo: multiplican su capacidad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASO 2 -->
+    <div class="ccase reveal">
+      <div style="background:radial-gradient(ellipse at top right,rgba(59,130,246,.06),transparent 55%);position:absolute;inset:0;border-radius:var(--rxl);pointer-events:none"></div>
+      <div class="ccase-inner">
+        <div>
+          <p class="cnum">CASO 02 / 04</p>
+          <span class="ctag tb">Data Analysis · BI</span>
+          <h3 class="ctitle">Dashboard de métricas operativas y comerciales</h3>
+          <p class="csub">Visibilidad centralizada de KPIs en Power BI para toma de decisiones en tiempo real</p>
+          <div class="cblocks">
+            <div><p class="cblbl">📌 Contexto</p><p class="cbtxt">El equipo de operaciones en Ticmas generaba reportes manuales semanales en Google Sheets. Los datos estaban dispersos en 3 fuentes distintas y el proceso llevaba 2–3 horas semanales por persona.</p></div>
+            <div><p class="cblbl">⚠️ Problema</p><p class="cbtxt">Sin visibilidad centralizada, los líderes tomaban decisiones con información atrasada. Los SLA de la plataforma educativa no se monitoreaban en tiempo real, lo que retrasaba la detección de caídas de performance.</p></div>
+            <div><p class="cblbl">🔍 Investigación y análisis</p><p class="cbtxt">Relevé las fuentes de datos disponibles (exportaciones de JIRA, registros de Salesforce, Google Sheets operativos). Realicé entrevistas con stakeholders para priorizar las métricas de mayor impacto en decisiones de negocio.</p></div>
+          </div>
+          <div class="ctools">
+            <span class="tbadge">Power BI</span><span class="tbadge">Metabase</span><span class="tbadge">Google Sheets</span><span class="tbadge">Excel avanzado</span><span class="tbadge">SQL</span>
+          </div>
+        </div>
+        <div>
+          <div class="cblocks">
+            <div><p class="cblbl">✅ Solución implementada</p><p class="cbtxt">Diseñé y construí un dashboard en Power BI con actualización automática cada 4 horas. Incluí vistas por tickets por estado y agente, SLA en riesgo (alerta visual en rojo), volumen de incidencias por categoría y comparativa semana a semana. Filtros dinámicos por período, área y tipo de caso.</p></div>
+          </div>
+          <div class="cresult">
+            <p class="crlbl">✓ RESULTADO OBTENIDO</p>
+            <p class="cbtxt">Eliminación de reportes manuales — ahorro de ~8 horas semanales en el equipo. Reducción del tiempo de reacción ante SLA en riesgo de 24hs a 2hs. Adopción por parte de 3 líderes de área para sus reuniones semanales.</p>
+          </div>
+          <div class="clearn">
+            <p class="cllbl">💡 APRENDIZAJE CLAVE</p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Un buen dashboard no muestra todos los datos disponibles — muestra exactamente lo que el negocio necesita ver para tomar la próxima decisión. Menos métricas, más impacto.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASO 3 -->
+    <div class="ccase reveal">
+      <div style="background:radial-gradient(ellipse at top right,rgba(34,197,94,.05),transparent 55%);position:absolute;inset:0;border-radius:var(--rxl);pointer-events:none"></div>
+      <div class="ccase-inner">
+        <div>
+          <p class="cnum">CASO 03 / 04</p>
+          <span class="ctag tg">QA Funcional · Testing</span>
+          <h3 class="ctitle">QA funcional de módulo educativo crítico</h3>
+          <p class="csub">Testing end-to-end antes del lanzamiento a 10.000+ usuarios activos</p>
+          <div class="cblocks">
+            <div><p class="cblbl">📌 Contexto</p><p class="cbtxt">Ticmas desarrolló un nuevo módulo de asignación de actividades para docentes. El lanzamiento estaba planificado para el inicio del ciclo escolar con más de 10.000 usuarios activos.</p></div>
+            <div><p class="cblbl">⚠️ Problema</p><p class="cbtxt">El módulo no tenía cobertura de QA formal. Sin testing estructurado, el riesgo de bugs en producción con usuarios reales era alto — y el impacto sobre docentes y alumnos sería inmediato e irreversible.</p></div>
+            <div><p class="cblbl">🔍 Investigación y análisis</p><p class="cbtxt">Leí los requerimientos funcionales, flujos de usuario y criterios de aceptación. Mapeé los escenarios críticos: creación, edición, asignación y entrega de actividades. Diseñé 48 casos de prueba cubriendo flujos positivos, negativos y edge cases.</p></div>
+          </div>
+          <div class="ctools">
+            <span class="tbadge">Testing manual</span><span class="tbadge">Casos de prueba</span><span class="tbadge">JIRA</span><span class="tbadge">Postman</span><span class="tbadge">Documentación funcional</span>
+          </div>
+        </div>
+        <div>
+          <div class="cblocks">
+            <div><p class="cblbl">✅ Solución implementada</p><p class="cbtxt">Ejecuté los 48 casos y documenté 13 bugs: 3 críticos (bloqueantes del flujo principal), 7 medios y 3 menores. Los críticos se escalaron con reproducción detallada paso a paso, capturas y datos de prueba. Los 3 fueron corregidos en las 48hs previas al go-live.</p></div>
+          </div>
+          <div class="cresult">
+            <p class="crlbl">✓ RESULTADO OBTENIDO</p>
+            <p class="cbtxt">Lanzamiento sin incidencias críticas en producción durante las primeras 72 horas. El proceso de QA se adoptó como estándar para futuros releases. Feedback positivo del equipo de desarrollo sobre la calidad del reporte de bugs.</p>
+          </div>
+          <div class="clearn">
+            <p class="cllbl">💡 APRENDIZAJE CLAVE</p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Un reporte de bug de calidad es la mitad del trabajo de QA. Cuando el equipo de desarrollo puede reproducir el problema en minutos, el tiempo de corrección se reduce drásticamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASO 4 -->
+    <div class="ccase reveal">
+      <div style="background:radial-gradient(ellipse at top right,rgba(245,158,11,.05),transparent 55%);position:absolute;inset:0;border-radius:var(--rxl);pointer-events:none"></div>
+      <div class="ccase-inner">
+        <div>
+          <p class="cnum">CASO 04 / 04</p>
+          <span class="ctag ta">Metabase · SQL · Data Analysis</span>
+          <h3 class="ctitle">Dashboard Metabase: análisis de datos comerciales de clientes</h3>
+          <p class="csub">Detección y corrección de inconsistencias críticas en precios, costos y ventas mediante dashboards conectados a bases de datos de clientes</p>
+          <div class="cblocks">
+            <div><p class="cblbl">📌 Contexto</p><p class="cbtxt">En Prisma Retail, los clientes reportaban inconsistencias en sus datos operativos que generaban errores en decisiones comerciales: artículos con costos superiores al precio de venta, ventas registradas en tiendas sin surtido disponible y costos cargados en cero.</p></div>
+            <div><p class="cblbl">⚠️ Problema</p><p class="cbtxt">Sin visibilidad centralizada sobre los datos de cada cliente, era imposible cuantificar el impacto ni detectar patrones. Los equipos comerciales tomaban decisiones sobre información incorrecta sin saberlo.</p></div>
+            <div><p class="cblbl">🔍 Investigación y análisis</p><p class="cbtxt">Conecté Metabase a las bases de datos de distintos clientes y diseñé queries SQL específicas para detectar: costos mayores al precio de venta, artículos con costo $0, y ventas de artículos sin surtido en la tienda de origen. Cada query se estructuró para ser reutilizable por cliente.</p></div>
+          </div>
+          <div class="ctools">
+            <span class="tbadge">Metabase</span><span class="tbadge">SQL</span><span class="tbadge">PostgreSQL</span><span class="tbadge">DBeaver</span><span class="tbadge">JIRA</span><span class="tbadge">Confluence</span>
+          </div>
+        </div>
+        <div>
+          <div class="cblocks">
+            <div><p class="cblbl">✅ Solución implementada</p><p class="cbtxt">Generé un <strong style="color:var(--text)">dashboard en Metabase conectado dinámicamente a las bases de datos de cada cliente</strong>, con vistas de precios, costos, ventas y decisiones comerciales. Incluí alertas visuales para los 3 tipos de inconsistencia más críticos y filtros por tienda, categoría y período.</p>
+            <p class="cbtxt" style="margin-top:10px">El dashboard permitió a los clientes evaluar en tiempo real la calidad de sus datos e identificar qué registros corregir con prioridad, con evidencia visual directa del impacto en su negocio.</p></div>
+          </div>
+          <div class="cresult">
+            <p class="crlbl">✓ RESULTADO OBTENIDO</p>
+            <p class="cbtxt">Detección y corrección de múltiples inconsistencias críticas por cliente: costos superiores al precio de venta, miles de registros con costo $0, y ventas fantasma en tiendas sin surtido. Los clientes pudieron tomar decisiones correctivas basadas en datos concretos y verificables.</p>
+          </div>
+          <div class="clearn">
+            <p class="cllbl">💡 APRENDIZAJE CLAVE</p>
+            <p style="font-size:13px;color:var(--text2);line-height:1.6">Un dashboard bien construido no solo muestra lo que está mal — le da al cliente el lenguaje para entender por qué importa corregirlo. La visualización convierte el dato técnico en decisión de negocio.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Experiencia profesional</p>
+    <h2 class="stitle">4 años construyendo<br><span class="ac">desde adentro</span></h2>
+    <p class="ssub">Roles híbridos en empresas tecnológicas donde cada posición sumó una capa más de expertise.</p>
+  </div>
+  <div class="tl reveal">
+    <div class="tli">
+      <div class="tldot cur"></div>
+      <p class="tlperiod">MAR 2024 — ACTUALIDAD · REMOTO</p>
+      <h3 class="tlrole">Support Specialist</h3>
+      <p class="tlco">Prisma Retail</p>
+      <ul class="tlpts">
+        <li class="tlpt">Soporte técnico especializado en instalación, configuración y uso de la herramienta Prisma Retail</li>
+        <li class="tlpt">Diagnóstico y resolución de incidencias técnicas en producción con análisis de causa raíz</li>
+        <li class="tlpt">Documentación estructurada y escalamiento de bugs al equipo de desarrollo con reproducción detallada</li>
+        <li class="tlpt">Colaboración cross-funcional con desarrollo para identificar, priorizar y corregir fallas sistémicas</li>
+        <li class="tlpt">Creación de runbooks internos y agentes de IA (Claude) para estandarizar y automatizar la resolución de casos recurrentes</li>
+        <li class="tlpt">Dashboards en Metabase conectados a bases de datos de clientes para análisis y corrección de inconsistencias comerciales</li>
+      </ul>
+      <div class="tlchips">
+        <span class="tlchip">Claude</span><span class="tlchip">Metabase</span><span class="tlchip">Intercom</span><span class="tlchip">JIRA</span><span class="tlchip">Grafana</span><span class="tlchip">Bitbucket</span><span class="tlchip">Confluence</span><span class="tlchip">Databricks</span>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tldot past"></div>
+      <p class="tlperiod">OCT 2023 — MAR 2024 · REMOTO</p>
+      <h3 class="tlrole">Desarrolladora Fullstack Trainee</h3>
+      <p class="tlco">Ticmas</p>
+      <ul class="tlpts">
+        <li class="tlpt">Desarrollo front-end con React y TypeScript — componentes, estados y consumo de APIs REST</li>
+        <li class="tlpt">Back-end con NestJS, SQL y MongoDB — endpoints, validaciones y consultas a BD</li>
+        <li class="tlpt">Control de versiones con Git/GitLab y gestión de tareas en JIRA bajo metodología Scrum</li>
+        <li class="tlpt">Integración y documentación de APIs con Postman</li>
+      </ul>
+      <div class="tlchips">
+        <span class="tlchip">React</span><span class="tlchip">TypeScript</span><span class="tlchip">NestJS</span><span class="tlchip">MongoDB</span><span class="tlchip">SQL</span><span class="tlchip">GitLab</span>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tldot past"></div>
+      <p class="tlperiod">FEB 2022 — MAR 2024 · BUENOS AIRES</p>
+      <h3 class="tlrole">Analista de Operaciones IT</h3>
+      <p class="tlco">Ticmas</p>
+      <ul class="tlpts">
+        <li class="tlpt">Cruce y análisis de datos operativos en Excel y Google Sheets para reportes de performance</li>
+        <li class="tlpt">Consultas en bases de datos con DBeaver (PostgreSQL, MongoDB) y gestión de usuarios en Keycloak</li>
+        <li class="tlpt">QA funcional y documentación técnica de nuevas funcionalidades antes de cada release</li>
+        <li class="tlpt">Soporte a plataforma educativa y gestión de datos vía Postman</li>
+        <li class="tlpt">Colaboración directa con equipo de producto en análisis de incidencias y mejora de procesos</li>
+      </ul>
+      <div class="tlchips">
+        <span class="tlchip">SQL</span><span class="tlchip">DBeaver</span><span class="tlchip">MongoDB</span><span class="tlchip">Postman</span><span class="tlchip">QA</span><span class="tlchip">Excel</span><span class="tlchip">Power BI</span>
+      </div>
+    </div>
+    <div class="tli">
+      <div class="tldot past"></div>
+      <p class="tlperiod">2022 — 2023</p>
+      <h3 class="tlrole">Desarrolladora Web Freelance</h3>
+      <p class="tlco">Phantogram</p>
+      <ul class="tlpts">
+        <li class="tlpt">Maquetado y desarrollo web en HTML, CSS y Bootstrap para clientes del sector creativo</li>
+      </ul>
+      <div class="tlchips"><span class="tlchip">HTML</span><span class="tlchip">CSS</span><span class="tlchip">Bootstrap</span></div>
+    </div>
+    <div class="tli">
+      <div class="tldot past"></div>
+      <p class="tlperiod">2016 — 2022</p>
+      <h3 class="tlrole">Roles previos en análisis y back office</h3>
+      <p class="tlco">DentalTotal · Wenance · Atento Argentina</p>
+      <ul class="tlpts">
+        <li class="tlpt">Administrativo Jr. en DentalTotal (2021–2022) — gestión operativa y coordinación</li>
+        <li class="tlpt">Analista de Cobranzas en Wenance (2018–2021) — análisis de cartera y negociación</li>
+        <li class="tlpt">Back Office en Atento Argentina (2016–2018) — soporte operativo y gestión de procesos</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Habilidades técnicas</p>
+    <h2 class="stitle">Stack técnico<br><span class="ac">orientado al negocio</span></h2>
+    <p class="ssub">Herramientas y tecnologías agrupadas por área de expertise.</p>
+  </div>
+  <div class="sgrid">
+    <div class="sgroup reveal">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(124,58,237,.1)"><svg width="20" height="20" fill="none" stroke="var(--vl)" stroke-width="1.8" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0018 0V5"/><path d="M3 12a9 3 0 0018 0"/></svg></div>
+        <div><div class="sgname">Data &amp; SQL</div><div class="sgsub">Análisis y bases de datos</div></div>
+      </div>
+      <div class="slist">
+        <div class="sitem"><div class="snrow"><span class="sname">PostgreSQL / MySQL</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">MongoDB / DBeaver</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:65%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Metabase</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Power BI</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:65%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Excel / Google Sheets</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:85%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Databricks</span><span class="slvl">Básico</span></div><div class="sbar"><div class="sfill" style="width:38%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+      </div>
+    </div>
+    <div class="sgroup reveal d1">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(34,197,94,.1)"><svg width="20" height="20" fill="none" stroke="var(--green)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><div class="sgname">QA &amp; Testing</div><div class="sgsub">Calidad y validación</div></div>
+      </div>
+      <div class="slist">
+        <div class="sitem"><div class="snrow"><span class="sname">QA Funcional manual</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:82%;background:linear-gradient(90deg,var(--green),#16A34A)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Diseño de casos de prueba</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--green),#16A34A)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Postman / API testing</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:70%;background:linear-gradient(90deg,var(--green),#16A34A)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Reporte de bugs (JIRA)</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:85%;background:linear-gradient(90deg,var(--green),#16A34A)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Grafana (monitoreo)</span><span class="slvl">Básico-Medio</span></div><div class="sbar"><div class="sfill" style="width:48%;background:linear-gradient(90deg,var(--green),#16A34A)"></div></div></div>
+      </div>
+    </div>
+    <div class="sgroup reveal d2">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(59,130,246,.1)"><svg width="20" height="20" fill="none" stroke="var(--blue)" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div><div class="sgname">IT Operations</div><div class="sgsub">Soporte y gestión</div></div>
+      </div>
+      <div class="slist">
+        <div class="sitem"><div class="snrow"><span class="sname">Intercom</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:82%;background:linear-gradient(90deg,var(--blue),#1D4ED8)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">JIRA / Confluence</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:85%;background:linear-gradient(90deg,var(--blue),#1D4ED8)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Bitbucket</span><span class="slvl">Básico-Medio</span></div><div class="sbar"><div class="sfill" style="width:50%;background:linear-gradient(90deg,var(--blue),#1D4ED8)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Agile / Scrum</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:78%;background:linear-gradient(90deg,var(--blue),#1D4ED8)"></div></div></div>
+      </div>
+    </div>
+    <div class="sgroup reveal">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(245,158,11,.1)"><svg width="20" height="20" fill="none" stroke="var(--amber)" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <div><div class="sgname">Desarrollo</div><div class="sgsub">Frontend &amp; Backend</div></div>
+      </div>
+      <div class="slist">
+        <div class="sitem"><div class="snrow"><span class="sname">HTML / CSS</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--amber),#D97706)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">React / TypeScript</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:60%;background:linear-gradient(90deg,var(--amber),#D97706)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">NestJS / Node.js</span><span class="slvl">Básico-Medio</span></div><div class="sbar"><div class="sfill" style="width:50%;background:linear-gradient(90deg,var(--amber),#D97706)"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Git / GitLab / Bitbucket</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:65%;background:linear-gradient(90deg,var(--amber),#D97706)"></div></div></div>
+      </div>
+    </div>
+    <div class="sgroup reveal d1">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(124,58,237,.1)">🤖</div>
+        <div><div class="sgname">IA &amp; LLMs</div><div class="sgsub">Inteligencia artificial aplicada</div></div>
+      </div>
+      <div class="slist">
+        <div class="sitem"><div class="snrow"><span class="sname">Claude (Anthropic)</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:82%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">ChatGPT (OpenAI)</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Gemini (Google)</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:65%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Agentes Conversacionales</span><span class="slvl">Intermedio</span></div><div class="sbar"><div class="sfill" style="width:68%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+        <div class="sitem"><div class="snrow"><span class="sname">Prompt Engineering</span><span class="slvl">Avanzado</span></div><div class="sbar"><div class="sfill" style="width:80%;background:linear-gradient(90deg,var(--violet),var(--blue))"></div></div></div>
+      </div>
+    </div>
+    <div class="sgroup reveal d2">
+      <div class="sgh">
+        <div class="sgicon" style="background:rgba(124,58,237,.1)"><svg width="20" height="20" fill="none" stroke="var(--vl)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><div class="sgname">Habilidades blandas</div><div class="sgsub">Lo que multiplica el impacto técnico</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Resolución de problemas</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Pensamiento crítico</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Comunicación técnica y no técnica</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Documentación funcional</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Colaboración cross-funcional</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Análisis de negocio</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Trabajo remoto asíncrono</span>
+        <span style="padding:6px 14px;background:var(--s2);border:1px solid var(--border2);border-radius:100px;font-size:13px;color:var(--text2)">Adaptabilidad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FORMACIÓN -->
+<section id="formacion" class="sec">
+  <div class="reveal">
+    <p class="eyebrow">Formación académica</p>
+    <h2 class="stitle">Aprendizaje<br><span class="ac">continuo</span></h2>
+    <p class="ssub">Base académica combinada con certificaciones técnicas orientadas a la práctica.</p>
+  </div>
+  <div class="egrid reveal">
+    <div class="ecard">
+      <div class="eicon" style="background:rgba(124,58,237,.1)"><svg width="22" height="22" fill="none" stroke="var(--vl)" stroke-width="1.7" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <p class="etype">Tecnicatura universitaria</p>
+      <h3 class="etitle">Tecnicatura en Sistemas Informáticos</h3>
+      <p class="eorg">Universidad Tecnológica Nacional — UTN</p>
+      <span class="ebadge ba">En curso</span>
+    </div>
+    <div class="ecard">
+      <div class="eicon" style="background:rgba(159,103,255,.1)">🤖</div>
+      <p class="etype">Tecnicatura universitaria</p>
+      <h3 class="etitle">Tecnicatura en Análisis de Datos e IA</h3>
+      <p class="eorg">Universidad ORT Argentina</p>
+      <span class="ebadge ba">En curso</span>
+    </div>
+    <div class="ecard">
+      <div class="eicon" style="background:rgba(59,130,246,.1)"><svg width="22" height="22" fill="none" stroke="var(--blue)" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <p class="etype">Bachiller</p>
+      <h3 class="etitle">Bachiller en Comunicación</h3>
+      <p class="eorg">Instituto General Pacheco · 2010 – 2015</p>
+      <span class="ebadge bd2">Finalizado</span>
+    </div>
+  </div>
+  <div class="certs reveal">
+    <div class="cert"><div class="cdot"></div><div><div class="cname">Desarrollo Web</div><div class="csub2">Coderhouse · Finalizado</div></div></div>
+    <div class="cert"><div class="cdot"></div><div><div class="cname">Programación Backend</div><div class="csub2">Coderhouse · Finalizado</div></div></div>
+    <div class="cert"><div class="cdot"></div><div><div class="cname">JavaScript</div><div class="csub2">Coderhouse · Finalizado</div></div></div>
+    <div class="cert"><div class="cdot"></div><div><div class="cname">React</div><div class="csub2">Coderhouse · Finalizado</div></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec">
+  <div class="cgrid">
+    <div class="reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="ch">¿Tenés un desafío<br>de negocio que<br><span class="ac">resolver?</span></h2>
+      <p class="cdesc">Estoy disponible para roles en IT Operations, Análisis Funcional, QA o Product Operations. Si buscás alguien que combine datos, soporte y visión de producto, hablemos.</p>
+      <div class="clinks">
+        <a href="mailto:can_db@hotmail.com" class="clink">
+          <div class="clicon" style="background:var(--vd)"><svg width="18" height="18" fill="none" stroke="var(--vl)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><p class="cllbl">EMAIL</p><p class="clval">can_db@hotmail.com</p></div>
+        </a>
+        <a href="https://www.linkedin.com/in/candela-dominguez-barco" target="_blank" class="clink">
+          <div class="clicon" style="background:var(--bd)"><svg width="18" height="18" fill="var(--blue)" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><p class="cllbl">LINKEDIN</p><p class="clval">Candela Dominguez Barco</p></div>
+        </a>
+        <a href="https://wa.link/aqnbz2" target="_blank" class="clink">
+          <div class="clicon" style="background:var(--gd)"><svg width="18" height="18" fill="var(--green)" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.849L.057 23.522a.5.5 0 00.609.61l5.733-1.453A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.893a9.868 9.868 0 01-5.031-1.378l-.36-.214-3.733.947.984-3.641-.235-.374A9.861 9.861 0 012.107 12C2.107 6.532 6.533 2.107 12 2.107c5.468 0 9.893 4.425 9.893 9.893 0 5.469-4.425 9.893-9.893 9.893z"/></svg></div>
+          <div><p class="cllbl">WHATSAPP</p><p class="clval">Escribime directo</p></div>
+        </a>
+        <div class="clink" style="cursor:default">
+          <div class="clicon" style="background:var(--ad)"><svg width="18" height="18" fill="none" stroke="var(--amber)" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><p class="cllbl">UBICACIÓN</p><p class="clval">Buenos Aires, Argentina · Disponible remoto</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <p style="font-size:13px;font-weight:600;color:var(--text3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.5rem">Enviar mensaje</p>
+      <div class="cform">
+        <div class="fgrp"><label class="flbl">Nombre</label><input class="finput" type="text" placeholder="Tu nombre completo"></div>
+        <div class="fgrp"><label class="flbl">Email</label><input class="finput" type="email" placeholder="tu@empresa.com"></div>
+        <div class="fgrp"><label class="flbl">Empresa (opcional)</label><input class="finput" type="text" placeholder="¿Dónde trabajás?"></div>
+        <div class="fgrp"><label class="flbl">Mensaje</label><textarea class="finput" placeholder="Contame sobre el rol o proyecto…"></textarea></div>
+        <button class="btn btn-p" onclick="alert('¡Gracias! Candela te contactará a la brevedad.')">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar mensaje
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <span class="flogo">Candela Dominguez Barco</span>
+  <span class="fcopy">IT Operations · QA · Data Analyst · Buenos Aires</span>
+  <span class="fcopy">2025 · Todos los derechos reservados</span>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-menu a:not(.nav-cta)');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
+  navAs.forEach(a => { const act = a.getAttribute('href') === '#'+cur; a.style.color = act ? '#fff' : ''; a.style.fontWeight = act ? '600' : ''; });
+});
+
+const sbObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.sfill').forEach(b => { const w=b.style.width; b.style.width='0'; setTimeout(()=>{ b.style.width=w; },150); });
+      sbObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.sgroup').forEach(g => sbObs.observe(g));
+
+function toggleNav() {
+  let m = document.getElementById('mobnav');
+  if (!m) {
+    m = document.createElement('div');
+    m.id = 'mobnav';
+    m.style.cssText = 'position:fixed;top:64px;left:0;right:0;z-index:199;background:rgba(10,10,10,.97);backdrop-filter:blur(24px);border-bottom:1px solid #232323;padding:1.5rem 2rem;display:flex;flex-direction:column;gap:0';
+    [['Sobre mí','#sobre-mi'],['Impacto','#impacto'],['Casos','#casos'],['Experiencia','#experiencia'],['Skills','#skills'],['Formación','#formacion'],['Contacto','#contacto']].forEach(([t,h]) => {
+      const a = document.createElement('a');
+      a.href=h; a.textContent=t;
+      a.style.cssText='font-size:16px;font-weight:500;color:#B3B3B3;text-decoration:none;padding:14px 0;border-bottom:1px solid #1C1C1C;display:block';
+      a.onclick=()=>m.remove();
+      m.appendChild(a);
+    });
+    document.body.appendChild(m);
+  } else { m.remove(); }
+}
+</script>
+</body>
+</html>
